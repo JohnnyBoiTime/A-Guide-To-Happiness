@@ -33,8 +33,6 @@ define j = Character("Jerry") # Cult leader Jerry character
 #   -Speaks only in latin                                                             #
 #-------------------------------------------------------------------------------------#
 
-# CHANGE MUSIC CREDITS TO ADD ALL THE ROYALTY FREE MUSIC USED OR PUT A LINK TO THEM OR SOMETHING
-
 #----------------------------------------------------------------------------------------------------------#
 
     # VARIABLES FOR CHOICES
@@ -127,81 +125,51 @@ label start: # Starts the game
 
 #----------------------------------------------------------------------------------------------------------#
 
-
     scene bg blacksquare # Sets scene to black square
-
-    # GENIUS GERALD said to make a menu for debugging specifically, put different debugs in different places
-
-    "Would you like to skip the intro?"
-
-    menu: # Menu for choices
-        "Continue": # Continues game
-            jump continueGame
-
-        "Skip Intro/Tutorial": # Skips intro
-            jump skipIntro    
-
-        "Debug":  # For debugging
-            jump db
-
-#----------------------------------------------------------------------------------------------------------#
-
+    
     label continueGame:
 
     play music "creepy.mp3" fadein 1.5    
-    
+
+    menu:
+        "Do you want to continue the game or jump to a chapter?"
+        "----->Continue Game<-----":
+            jump firstMenu
+
+        "----->Chapter Selection<-----":
+            jump chapterSelection
+
+    label chapterSelection:            
+
+    menu:
+        "Select a place to jump to"   
+        "----->Disco<-----":
+            jump mainGame
+        
+        "----->Date<-----":    
+            jump date1
+
+        "----->Cult<-----":
+            jump caveInside
+
+#----------------------------------------------------------------------------------------------------------#
     # Start of dialogue (PRE-TACO DOG)
-    i "{cps=25}{i}It all started back in my freshman year of college{/i}"
-
-    i "{cps=25}{i}I wasn't nervous at all making the transition into adulthood and independence{/i}"
-
-    i "{cps=25}{i}I was actually excited to meet new people, make lifelong friends{/i}"
-
-    i "{cps=25}{i}Just a regular, normal, average college student life{/i}"
-
-    i "{cps=25}{i}...{/i}"
-
-    i "{cps=25}{i}But life is unpredictable{/i}"
-
-    i "{cps=25}{i}It always feels like it happens opposite of what you anticipated{/i}"
-
-    i "{cps=25}{i}But maybe that is the way it is supposed to happen for some of us{/i}"
-
-    i "{cps=25}{i}What do you think?{/i}"
-
+ 
     label firstMenu:    
 
     menu:
         "{cps=50}{b}Options will be presented to you, {a=jump:a_label}hover your mouse over an option or blue text and click with the left mouse button/touchpad{/a}{/b}"
-        "----->Agree<-----":
+        "----->Ok!!!!<-----":
             jump agree
 
-        "----->Disagree<-----":
-            jump disagree    
+        "----->Wait I can click on the highlighted blue text?<-----":
+            jump a_label        
 
 #----------------------------------------------------------------------------------------------------------#   
 
     label agree:
         
-    i "{cps=25}{i}Looks like we are in the same boat{/i}"    
-
-    "{cps=50}{b}Each choice selected will either change how the game progresses, or is simply an action{/b}"
-
     "{cps=50}{b}Good luck and have fun! Lets get on with the game{/b}"
-
-    jump mainGame
-
-#----------------------------------------------------------------------------------------------------------#
-
-    label disagree:
-
-    i "{cps=25}{i}I see, let's see if you still believe that later on{/i}"
-
-    "{cps=50}{b}Each choice selected will change how the game progresses, or is simply an action{/b}"   
-
-    "{cps=50}{b}But you probably already know this huh?{/b}"
-
-    "{cps=50}{b}Anyawys, lets get on with the game!{/b}"
 
     jump mainGame
 
@@ -217,29 +185,28 @@ label start: # Starts the game
 
 #----------------------------------------------------------------------------------------------------------#
 
-    label skipIntro:
 
     label mainGame: # Path where MC meets gf
 
-    i "{cps=25}{i}On my first day in college, I hosted a dance party because I was THAT GUY{/i}"
+    i "{i}On my first day in college, I hosted a dance party because I was THAT GUY{/i}"
 
-    i "{cps=25}{i}Let me set the scene, because it wasn't just any party, it was a disco party{/i}"
+    i "{i}Let me set the scene, because it wasn't just any party, it was a disco party{/i}"
 
     stop music fadeout 1.0
 
     scene bg disco
     with blinds
 
-    i "{cps=25}{i}A disco party with disco music{/i}"
+    i "{i}A disco party with disco music{/i}"
     
     play music "disco.mp3" fadein 1.0 # Fades in music
 
     pause 1.0
 
-    i "{cps=25}{i}{a=https://www.youtube.com/watch?v=urb8ZX8cuhE&ab_channel=SnowStrippers-Topic}There we go{/a}{/i}"
+    i "{i}{a=https://www.youtube.com/watch?v=urb8ZX8cuhE&ab_channel=SnowStrippers-Topic}There we go{/a}{/i}"
 
     menu:
-        "{cps=25}{i}I can't believe this {a=jump:lookAround}club!{/a}{/i}"
+        "{i}I can't believe this {a=jump:lookAround}club!{/a}{/i}"
         "----->Shred Dance Floor<-----":
             jump dance
 
@@ -247,25 +214,25 @@ label start: # Starts the game
 
     label lookAround:
 
-    i "{cps=25}{i}I look around the club I rented{/i}"
+    i "{i}I look around the club I rented{/i}"
 
-    i "{cps=25}{i}The club is just one big room, the dimensions (feet) in length, width, and height are 30.5, 30, and 20 respectively{/i}"
+    i "{i}The club is just one big room, the dimensions (feet) in length, width, and height are 30.5, 30, and 20 respectively{/i}"
 
-    i "{cps=25}{i}There are bathrooms on one side of the room, and there is the entrance to the club at the opposite side of the bathroom{/i}"
+    i "{i}There are bathrooms on one side of the room, and there is the entrance to the club at the opposite side of the bathroom{/i}"
 
-    i "{cps=25}{i}Adjacent to both, there is a DJ who is playing music{/i}"
+    i "{i}Adjacent to both, there is a DJ who is playing music{/i}"
 
-    i "{cps=25}{i}To describe the people there...{/i}"
+    i "{i}To describe the people there...{/i}"
 
     # INSERT GRAPHIC OF A CIRCLE IN THE MIDDLE OF A CROWD WHERE PEOPLE SHRED
 
-    i "{cps=25}{i}Imagine a piece of bread with the center of the bread cut out by a cup and removed{/i}"
+    i "{i}Imagine a piece of bread with the center of the bread cut out by a cup and removed{/i}"
 
-    i "{cps=25}{i}The left over bread is the people and the empty center is the dance circle that was naturally created{/i}"
+    i "{i}The left over bread is the people and the empty center is the dance circle that was naturally created{/i}"
 
     # SWITCH BACK TO DISCO PICTURE
 
-    i "{cps=25}{i}Of course there are people dancing in the center, but they aren't at MY level, to even compare us is an insult to dancing{/i}"
+    i "{i}Of course there are people dancing in the center, but they aren't at MY level, to even compare us is an insult to dancing{/i}"
 
     label dance:  
     
@@ -277,13 +244,13 @@ label start: # Starts the game
             linear 0.5 xalign 0.3
             repeat  
 
-    i "{cps=25}{i}Anyways, I entered the dance floor, {a=jump:shredding}shredding it inside the dance circle with ROLLER SKATES{/a}{/i}"
+    i "{i}Anyways, I entered the dance floor, {a=jump:shredding}shredding it inside the dance circle with ROLLER SKATES{/a}{/i}"
 
     jump skipShredding
 
     label shredding:
 
-    i "{cps=25}{i}I was doing popshuvits, kickflips, ollies, you name it I was executing it on the dance floor{/i}"  
+    i "{i}I was doing popshuvits, kickflips, ollies, you name it I was executing it on the dance floor{/i}"  
 
     label skipShredding:
 
@@ -299,23 +266,9 @@ label start: # Starts the game
 
     gf "So, why did you take me here? We don't even know the host" 
 
-    ni "Because you need to get out more! You can't just {a=jump:videoGames}stay inside and play video games! You need to live a little and socialize!{/a}"
+    gf "Just stick by me ok? I don't want to get lost in the crowd by myself, I get too anxious"
 
-    jump skipVideoGames
-
-    label videoGames:
-
-    "{b}{cps=3}... {cps=50}I dunno sounds like pretty sound advice{/b}"    
-
-    label skipVideoGames:
-
-    gf "Just stick by me ok? I don't want to get lost in the crowd by myself"
-
-    ni "No promises~~~, maybe if you are all alone something special will happen~" 
-
-    gf "...Maybe"
-
-    gf "H-hey! Where are you going?"
+    gf "H-hey! Where are you going?!"
 
     "{b}[ni] dissapears into the crowd{/b}"
 
@@ -334,12 +287,6 @@ label start: # Starts the game
 
     show gf happy at center:
     with Dissolve(0.5)
-
-    gf "(She really left me! I can't believe it, this is the fifth time this has happened!)"   
-
-    gf "(...)"
-
-    gf "(Well nevermind I guess I can believe it)"
 
     gf "(UGH! Where is she? There are so many people here I can't find her!)"
 
@@ -372,9 +319,9 @@ label start: # Starts the game
     scene bg blacksquare
     with Dissolve(0.5)
 
-    i "{cps=25}{i}It was straight out of a visual novel, she walked into the dance circle and I just bumped into her{/i}"
+    i "{i}It was straight out of a visual novel, she walked into the dance circle and I just bumped into her{/i}"
 
-    i "{cps=25}{i}That is how [gf] and I met{/i}"
+    i "{i}That is how [gf] and I met{/i}"
 
     scene bg disco 
     with Dissolve(0.5)
@@ -395,24 +342,14 @@ label start: # Starts the game
 
     show gf animated at left
 
-    gf "I'm fine, I was pushing my way through the crowd so it was entirely my bad"
+    gf "I-I'm fine, as you can see I work out a little bit so this is nothing, but what about you? Are you alright?"
 
     show gf happy at left
 
-    show mc animated at right
-
-    i "Pushing through the crowd, so you are here to dance with me huh? I am the dancing king, so it seems I have found my dancing queen"
-
-    show mc happy at right
-
-    show gf animated at left
-
-    gf "No i-"
-
-    show gf happy at left
+    "{b}[gf] extends her hand out to [i], [i] grabs it and is helped up{/b}"
 
     menu:
-        i "{cps=25}{i}I didn't let her finish her sentence, I grabbed her hand and we began dancing{/i}"
+        i "{i}I grabbed her hand and we immediately began dancing{/i}"
         "----->Fast dance<-----":
             $ b = 1 # Sets b to 1 for slow dance choice
 
@@ -451,9 +388,9 @@ label start: # Starts the game
             linear 10.0 rotate 360 
             repeat 
 
-    i "{cps=25}{i}I can tell she had never danced before, so I mostly led and she followed{/i}"
+    i "{i}I can tell she had never danced before, so I mostly led and she followed{/i}"
 
-    i "{cps=25}{i}After a while I didn't need to lead anymore, we just danced in sync, it was a sight straight out of Dirty Dancing{/i}"
+    i "{i}After a while I didn't need to lead anymore, we just danced in sync, it was a sight straight out of Dirty Dancing{/i}"
 
     show gf happy at left:
         rotate 0
@@ -465,7 +402,7 @@ label start: # Starts the game
         linear 10.0 rotate 360
         repeat       
 
-    i "{cps=25}{i}We danced for{cps=15}...I don't know how long, but I started to feel tired and noticed her eyelids get heavier{/i}"
+    i "{i}We danced for{cps=15}...I don't know how long, but I started to feel tired and noticed her eyelids get heavier{/i}"
 
     hide gf happy
 
@@ -491,7 +428,11 @@ label start: # Starts the game
 
     show gf happy at left
 
-    i "{cps=25}{i}I wasn't a dense idiot, I could tell she wanted my phone number but didn't want to say it{/i}"
+    i "..."
+
+    gf "..."
+
+    i "{i}Oh, I see what is going on here!{/i}"
 
     hide mc happy
 
@@ -507,7 +448,7 @@ label start: # Starts the game
 
     if phoneNumber:
         $ smile = True
-        i "{cps=25}{i}My phone number is 425-749-****, I gave it to her and she {a=jump:smile}smiled{/a}{/i}."
+        i "{i}My phone number is 425-749-****, I gave it to her and she {a=jump:smile}smiled{/a}{/i}."
     else:
         jump skipConvo    
 
@@ -518,7 +459,7 @@ label start: # Starts the game
     label smile:
 
     if smile:     
-        i "{cps=25}{i}It was the cutest, most genuine smile I've ever seen, my heart couldn't stop feeling warm{/i}"    
+        i "{i}It was the cutest, most genuine smile I've ever seen, my heart couldn't stop feeling warm{/i}"    
     
     hide gf happy
 
@@ -526,16 +467,14 @@ label start: # Starts the game
 
     gf "Sounds good!"
 
+    "{b}[gf] starts walking to her friend who was watching this whole time{/b}"
+
+    "{b}but instead of being angry, she is all smiles{\b}"
+
     scene bg blacksquare
     with Dissolve(0.5)
 
     stop music fadeout 1.0
-
-    i "{cps=25}{i}I used the whole dancing thing as an excuse, I just wanted to see her again{/i}"
-
-    i "{cps=25}{i}And there you go, that is how we met{/i}" 
-
-    i "{cps=25}{i}Anyways, after hanging out here and there we finally decided to become more than friends and went on our first ever date{/i}" 
 
     # TIMESKIP
  
@@ -550,9 +489,9 @@ label start: # Starts the game
     scene bg tacodog 
     with Dissolve(0.5)    
 
-    i "{cps=25}{i}Ah taco dog, home of the taco{/i}"
+    i "{i}Ah taco dog, home of the taco{/i}"
 
-    i "{cps=25}{i}This of course was not the {a=jump:dateStory}first date I ever been on{/a}, but it turns out it was her first ever date{/i}"
+    i "{i}This of course was not the {a=jump:dateStory}first date I ever been on{/a}, but it turns out it was her first ever date{/i}"
 
     jump skipDateStories
 
@@ -562,13 +501,13 @@ label start: # Starts the game
 
     play music "creepy.mp3" fadein 2.0    
 
-    i "{cps=25}{i}I've been on some dates throughout highschool, actually there is one that stands out{/i}"
+    i "{i}I've been on some dates throughout highschool, actually there is one that stands out{/i}"
 
-    i "{cps=25}{i}This one girl I went out with always talked about this game called SpineCraft{/i}"
+    i "{i}This one girl I went out with always talked about this game called SpineCraft{/i}"
 
-    i "{cps=25}{i}It was a game where you could choose how your body would decompose, and in the end you always turned into something without a spine{/i}"
+    i "{i}It was a game where you could choose how your body would decompose, and in the end you always turned into something without a spine{/i}"
 
-    i "{cps=25}{i}...She was such a weird person, who would play such a game? I guess that explains why she was always so jittery{/i}"    
+    i "{i}...She was such a weird person, who would play such a game? I guess that explains why she was always so jittery{/i}"    
 
     stop music fadeout 1.0
 
@@ -576,9 +515,9 @@ label start: # Starts the game
 
     label skipDateStories:
 
-    i "{cps=25}{i}I brought [gf] to the greatest eating establishment at our college, Taco Dog{/i}"
+    i "{i}I brought [gf] to the greatest eating establishment at our college, Taco Dog{/i}"
 
-    i "{cps=25}{i}Authentic mexican cuisine, 3 michelin stars, THE place to go on campus{/i}"
+    i "{i}Authentic mexican cuisine, 3 michelin stars, THE place to go on campus{/i}"
     
     show gf happy at left:
     with Dissolve(0.5) 
@@ -607,15 +546,13 @@ label start: # Starts the game
     scene bg tacodoginside
     with Dissolve(0.5)
 
-    i "{cps=25}{i}After greeting each other, we go into the restaurant, and take our seat{/i}"
-    
-    i "{cps=25}{i}After chatting for a little while, our waiter finally comes to take our order{/i}"
+    i "{i}After greeting each other, we go into the restaurant, and take our seat{/i}"
 
     play music "dog.mp3" fadein 1.0
     show widget happy at center:
     with Dissolve(0.5)
 
-    i "{cps=25}{i}I couldn't believe it! The owner of this place, [w] taking our order!{/i}"
+    i "{i}I couldn't believe it! The owner of this place, [w] taking our order!{/i}"
 
     show mc happy at right:
     with Dissolve(0.5)
@@ -623,7 +560,7 @@ label start: # Starts the game
     show gf happy at left:
     with Dissolve(0.5)
 
-    i "{cps=25}{i}The owner of this place doesn't talk at all, many say it is because he shows his pride in silence{/i}"
+    i "{i}The owner of this place doesn't talk at all, many say it is because he shows his pride in silence{/i}"
 
     stop music fadeout 0.25
 
@@ -632,7 +569,7 @@ label start: # Starts the game
     play music "background.mp3" fadein 1.0
 
     menu:
-        i "{cps=25}{i}He has a menu attached to his back along with a pen where we choose what we want{/i}"
+        i "{i}He has a menu attached to his back along with a pen where we choose what we want{/i}"
         "----->[q]<-----":
             $ s = 0
             jump quesoBurrito
@@ -647,15 +584,15 @@ label start: # Starts the game
 
     if s == 0:    
 
-        i "{cps=25}{i}I order the [q], [gf] then looks at me in astonishment{/i}"
+        i "{i}I order the [q], [gf] then looks at me in astonishment{/i}"
 
     if s == 1:
         
-        i "{cps=25}{i}I order the [t], [gf] then looks at me in astonishment{/i}"
+        i "{i}I order the [t], [gf] then looks at me in astonishment{/i}"
 
     if s == 2:
 
-        i "{cps=25}{i}I order the [f], [gf] then looks at me in astonishment{/i}"
+        i "{i}I order the [f], [gf] then looks at me in astonishment{/i}"
 
     hide gf happy
 
@@ -667,15 +604,7 @@ label start: # Starts the game
 
     show gf happy at left
 
-    i "{cps=25}{i}I thought she was just playing a funny joke at the time so I just laughed it off{/i}"
-
-    i "{cps=25}{i}It was now just me and her, together{/i}"
-
-    i "{cps=25}{i}...{/i}"
-
-    i "{cps=25}{i}Shi- what do I say?{/i}"
-
-    i "{cps=25}{i}I've been on many dates before, why do I-{/i}"
+    i "{i}I thought she was just playing a funny joke at the time so I just laughed it off{/i}"
 
     show gf animated at left
 
@@ -687,17 +616,15 @@ label start: # Starts the game
 
     show mc animated at right
 
-    i "Yeah! I'm doing perfectly fine, what about you?"
+    i "Y-yeah! I'm doing perfectly fine, what about you?"
 
     hide mc animated
 
     show mc happy at right
 
-    i "{cps=25}{i}Wait I already asked how she was! What are you doing [i]???{/i}"
-
     hide gf happy
 
-    show gf animamted at left
+    show gf animated at left
 
     gf "About the same as I was a few minutes ago, unlike you who is PRETTY {a=jump:aFewMinutesAgo}different from a few minutes ago *chuckles*{/a}"
 
@@ -709,7 +636,7 @@ label start: # Starts the game
 
     label aFewMinutesAgo:
 
-    i "{cps=25}{i}Her laugh was so adorable, my heart <3{/i}"   
+    i "{i}Her laugh was so adorable, my heart <3{/i}"   
 
     hide mc happy 
 
@@ -723,11 +650,11 @@ label start: # Starts the game
 
     "{b}[gf]'s face turns cherry red{/b}"
 
-    i "{cps=25}{i}I now feel less nervous{/i}"
+    i "{i}I now feel less nervous{/i}"
 
     label skipAFewMinutesAgo:
     
-    i "{cps=25}{i}After waiting for a while, [w] comes back with our food, which is on a tray on his back{/i}"
+    i "{i}After waiting for a while, [w] comes back with our food, which is on a tray on his back{/i}"
 
     menu:
         "----->Take Food<-----":
@@ -737,17 +664,17 @@ label start: # Starts the game
 
     if s == 0:    
 
-        i "{cps=25}{i}I take a bite out of my [q], then something weird happens{/i}"
+        i "{i}I take a bite out of my [q], then something weird happens{/i}"
 
     if s == 1:
 
-        i "{cps=25}{i}I take a bit out of my [t], then something weird happens{/i}"    
+        i "{i}I take a bit out of my [t], then something weird happens{/i}"    
 
     if s == 2:
 
-        i "{cps=25}{i}I took a bite out of my [f], then something weird happens{/i}"     
+        i "{i}I take a bite out of my [f], then something weird happens{/i}"     
 
-    i "{cps=25}{i}W-what is happeni-{/i}{nw}"
+    i "{i}W-what is happeni-{/i}{nw}"
 
     stop music
 
@@ -764,23 +691,27 @@ label start: # Starts the game
 
     play music "dramatic.mp3" fadein 1.0
 
-    i "{cps=25}{i}I started to feel queasy{/i}"
+    i "{i}W-What was that? I-don't feel well, I think I am going to throw up{/i}"
 
-    i "{cps=25}{i}My vision gets weird and strange, the world turns into an unrecognizable mess{/i}"
+    i "{i}My vision is starting to get weird and strange, the world is turning into an unrecognizable mess{/i}"
 
-    i "{cps=25}{i}Then...{/i}"
+    gf "H-hey! Are you ok? [i]? [i]!!!!"
+
+    i "{i}It was like she didn't exist anymore, I can't hear her or even acknowledge her{/i}"
+
+    i "{i}Then...{/i}"
 
     show widget happy at center
     with Dissolve(0.5)
 
     w "Greetings [i]"
 
-    i "{cps=25}{i}Yes, that's right, [w] started talking to me{/i}"
+    i "{i}[w]??? What is going on?{/i}"
 
     label menu1:
 
     menu:
-        i "{cps=25}{i}Only I could understand him, no one else could{/i}"
+        i "{i}Only I could understand him, no one else could{/i}"
         "Conversation Information":
             jump widget
 
@@ -790,11 +721,11 @@ label start: # Starts the game
 
     # WRITE MORE DIALOGUE ABOUT WHAT MC AND WIDGET TALKED ABOUT
 
-    i "{cps=25}{i}We talked about-{/i}"
+    i "{i}We talked about-{/i}"
 
-    i "{cps=25}{i}W-we uhhhh{/i}"
+    i "{i}W-we uhhhh{/i}"
 
-    "{cps=25}{i}I feel light headed, what i-{/i}"
+    "{i}I feel light headed, what i-{/i}"
     
     scene bg blacksquare:
     with Dissolve(0.5)    
@@ -803,21 +734,21 @@ label start: # Starts the game
 
     "{i}NEXT DAY{/i}"
 
-    i "{cps=25}{i}I didn't remember anything that happened yesterday{/i}"
+    i "{i}I didn't remember anything that happened yesterday{/i}"
 
     if s == 0:
 
-        i "{cps=25}{i}What happened after I took a bite of the [q]?{/i}"
+        i "{i}What happened after I took a bite of the [q]?{/i}"
 
     if s == 1:
 
-        i "{cps=25}{i}What happened after I took a bite of the [t]?{/i}"
+        i "{i}What happened after I took a bite of the [t]?{/i}"
 
     if s == 2 :
 
-        i "{cps=25}{i}What happened after I took a bite of the [f]?{/i}"    
+        i "{i}What happened after I took a bite of the [f]?{/i}"    
     
-    i "{cps=25}{i}I was feeling sick, so I went to the bathroom and then...{/i}"
+    i "{i}I was feeling sick, so I went to the bathroom and then...{/i}"
 
     stop music fadeout 0.5
 
@@ -831,7 +762,7 @@ label start: # Starts the game
 
     play music "dramatic.mp3" fadein 1.0
 
-    i "{cps=25}{i}Yes, a cheesy-gordoggy-crunch appeared on my forehead!{/i}"
+    i "{i}Yes, a cheesy-gordoggy-crunch appeared on my forehead!{/i}"
 
     i "I-I can't believe it!"
 
@@ -841,71 +772,47 @@ label start: # Starts the game
 
     i "WIIDDGGEETTTTT"
     
-    i "{cps=25}{i}I was furious, my hands now bloodied from shattering the mirror{/i}"
+    i "{i}I was furious, my hands now bloodied from shattering the mirror{/i}"
 
     scene bg bathroom
     with pushup
 
-    i "{cps=25}{i}But then, I heard a voice in my head, and an image appeared in front of me{/i}"
+    i "{i}But then, I heard a voice in my head, and an image appeared in front of me{/i}"
 
     show widget happy at center:
     with Dissolve(0.5)
 
-    i "{cps=25}{i}It was [w]!{/i}" 
+    i "{i}It was [w]!{/i}" 
 
     i "WIDGET!"
 
     w "Konnichiwassup [i], hisashi been a while, daijouokay?"
 
-    i "N-Nani?! Everything is not daijoukay [w]! Revert me back to normal!"
-
-    w "Normal? This is your new normal now, thus no reversion is necassary"
-
-    i "{cps=25}{i}I should have been angry, but when I heard him speak so eloquently, my anger dissapeared{/i}"
-    
-    w "I am only gomenasorry that you could not experience this sooner"
-
-    i "{cps=25}{i}I could only feel like I was in the presence of something greater than myself{/i}"
+    i "{i}I should have been angry, but when I heard him speak so eloquently, my anger dissapeared{/i}"
 
     i "W-what are you?"
 
-    w "I am a seer, I am a messanger, I am a savoir, I am a traveller"
+    w "I am the divine"
 
-    w "And lord above, you are lucky to be recieving my divine intervention"
-
-    w "Let me guide you, poor soul"
+    w "Let me guide you"
 
     scene bg eme
     with Dissolve(0.5)
 
     # SLIME CULT PATH
 
-    i "{cps=25}{i}I was lead to a mysterious building on campus{/i}"
+    i "{i}I was lead to a mysterious building on campus{/i}"
 
-    i "{cps=25}{i}A building that was visited by students and teachers alike, 'why would the voices lead me here?' I wondered{/i}"
-
-    i "{cps=25}{i}Building ************{/i}"
-
-    i "{cps=25}{i}And then I noticed something that I swear was not there before{/i}"
+    i "{i}Building ************{/i}"
 
     scene bg cultentrance
     with Dissolve(0.5)
     
-    i "{cps=25}{i}I was not going crazy! This was never here before, where did this come from?{/i}"
+    i "{i}I was not going crazy! This was never here before, where did this come from?{/i}"
 
-    i "{cps=25}{i}That was when I heard...{/i}"
+    i "{i}Even though I felt scared, the urge to jump grew greater as the seconds passed{/i}"
 
-    w "You, the chosen, understand the urge to travel into paths uncharted by your normal peers"
-
-    w "..."
-
-    w "Walk"
-
-    i "N-no, it looks like it goes forever!"
-
-    i "{cps=25}{i}Even though I felt scared, the urge to jump grew greater as the seconds passed{/i}"
-
-    i "{cps=25}{i}And before I knew it...{/i}"
+    i "{i}And before I knew it...{/i}"
 
     stop music
 
@@ -921,14 +828,16 @@ label start: # Starts the game
 
     "{b}*SQUISH*{\b}"
 
-    i "{cps=25}{i}I fell on something soft, what broke my fall?{/i}"
+    i "{i}I fell on something soft, what broke my fall?{/i}"
+
+    label caveInside:
 
     play music "ambience.mp3" fadein 1.0
 
     scene bg cult
     with Dissolve(0.5)
 
-    i "{cps=25}{i}I found myself in a cave{/i}"
+    i "{i}I found myself in a cave{/i}"
 
     $ a = 0
 
@@ -938,7 +847,7 @@ label start: # Starts the game
 
     if a == 5:
 
-        i "{cps=25}{i}I walked back to the main room of the cave{/i}"
+        i "{i}I walked back to the main room of the cave{/i}"
 
     label choicesNow:
 
@@ -968,31 +877,23 @@ label start: # Starts the game
 
     label lookAroundCave:
 
-    i "{cps=25}{i}I stumbled around the cave, my eyes adjusting after a few seconds{/i}"
+    i "{i}I stumbled around the cave, my eyes adjusting after a few seconds{/i}"
 
     # ENTER IMAGE WITH INCREASED SASTURATION/BRIGHTNESS
 
-    i "{cps=25}{i}After my eyes adjusted, I looked around to better assess my situation{/i}"
+    i "{i}After my eyes adjusted, I looked around to better assess my situation{/i}"
 
-    i "{cps=25}{i}I must have fallen for what feels like ages, I never knew such a cave system existed down here{/i}"
+    i "{i}There was this strange rectangular-bed in front of me{/i}"
 
-    i "{cps=25}{i}There were many branching holes that lead to who knwos what, but it seemed like I was in some kind of 'main room'{/i}"
+    i "{i}It seemed to be surrounded by...candles...?{/i}"
 
-    i "{cps=25}{i}The 'cieling' of the place was about 15-20 feet high{/i}"
-
-    i "{cps=25}{i}There was this strange rectangular-bed? Shaped rock around 1-5 feet in front of me{/i}"
-
-    i "{cps=25}{i}It was the only other thing in this room that had a shape{/i}"
-
-    i "{cps=25}{i}It seemed to be surrounded by...candles...?{/i}"
-
-    i "{cps=25}{i}What kind of place is this...?{/i}"
+    i "{i}What kind of place is this...?{/i}"
 
     label choicesNow2:
 
     if a == 9:
 
-        i "{cps=25}{i}There is no way out of here, I am trapped{/i}"
+        i "{i}There is no way out of here, I am trapped{/i}"
 
         jump continueOn
 
@@ -1000,7 +901,7 @@ label start: # Starts the game
 
     if a == 10:
 
-        i "{cps=25}{i}I leave the pile alone{/i}"
+        i "{i}I leave the pile alone{/i}"
 
     menu:
         "----->Explore rectangular bed<-----":
@@ -1018,19 +919,19 @@ label lookAtPile:
 
     if a == 9:
 
-        i "{cps=25}{i}Here it is again, this green pile{/i}"
+        i "{i}Here it is again, this green pile{/i}"
 
-        i "{cps=25}{i}Maybe it has an answer to how to get out of here? I just need some semblance of hope at this point{/i}"
+        i "{i}Maybe it has an answer to how to get out of here? I just need some semblance of hope at this point{/i}"
 
         jump pile2
         
-    i "{cps=25}{i}I stumbled around the cave, my eyes adjusting after a few seconds{/i}"
+    i "{i}I stumbled around the cave, my eyes adjusting after a few seconds{/i}"
 
-    i "{cps=25}{i}I look back at the pile that broke my fall{/i}"
+    i "{i}I look back at the pile that broke my fall{/i}"
 
-    i "{cps=25}{i}It was all... green{/i}"
+    i "{i}It was all... green{/i}"
 
-    i "{cps=25}{i}...What is this?{/i}"
+    i "{i}...What is this?{/i}"
     
     label pile2:
 
@@ -1045,15 +946,15 @@ label lookAtPile:
 
 label touchPile:
 
-    i "{cps=25}{i}I leaned in and touch the pile{/i}"    
+    i "{i}I leaned in and touch the pile{/i}"    
 
-    i "{cps=25}{i}The texture was like the surface of a slug{/i}"
+    i "{i}The texture was like the surface of a slug{/i}"
 
-    i "{cps=25}{i}It was slimey, but at the same time oddly smooth{/i}"
+    i "{i}It was slimey, but at the same time oddly smooth{/i}"
 
-    i "{cps=25}{i}I-It's so pleasant, I can't stop touching it!{/i}"
+    i "{i}I-It's so pleasant, I can't stop touching it!{/i}"
 
-    i "{cps=25}{i}It was like it was made for touching! I CANT STOP{/i}"
+    i "{i}It was like it was made for touching! I CANT STOP{/i}"
 
     i "{cps=50}{i}TOUCH TOUCH TOUCH TOUCH TOUCH TOUCH{/i}"
 
@@ -1066,7 +967,7 @@ label touchPile:
     scene bg credits
     with Dissolve(0.5)
 
-    "{b}END 1/5{/b}"
+    "{b}END 1/100{/b}"
 
     "{b}Made for a college class at Washington State University{/b}"
 
@@ -1085,14 +986,14 @@ label touchPile:
 
     label die:
     
-    i "{cps=25}{i}...{/i}"
+    i "{i}...{/i}"
 
-    i "{cps=25}{i}I'm done{/i}"
+    i "{i}I'm done{/i}"
 
     scene bg credits
     with Dissolve(0.5)
 
-    "{b}END 2/5{/b}"
+    "{b}END 2/100{/b}"
 
     "{b}Made for a college class at Washington State University{/b}"
 
@@ -1110,15 +1011,15 @@ label touchPile:
 
     label lookAtAltar:
 
-    i "{cps=25}{i}I walk closer to the rectangular looking shape{/i}"
+    i "{i}I walk closer to the rectangular looking shape{/i}"
 
-    i "{cps=25}{i}That rectangular bed shaped figure turned out to be an alter, and the moment I got closer-{/i}"
+    i "{i}That rectangular bed shaped figure turned out to be an alter, and the moment I got closer-{/i}"
 
     # HAVE 2 BACKGROUNDS, 1 WITH CANDLES OFF, BUT THEN ONE WITH CANDLES ON TO GIVE AFFECT CANDLES TURNED ON
 
-    i "{cps=25}{i}After the alter lit up, all the sudden I see that the slime I fell on was a giant slime!{/i}"
+    i "{i}After the alter lit up, all the sudden I see that the slime I fell on was a giant slime!{/i}"
 
-    i "{cps=25}{i}They all scattered from the pile, revealing one giant slime that was in the center of it all{/i}"
+    i "{i}They all scattered from the pile, revealing one giant slime that was in the center of it all{/i}"
 
     show jerry happy at centerScreen:
     with Dissolve(0.5)
@@ -1139,7 +1040,7 @@ label touchPile:
 
     show jerry happy at centerScreen  
 
-    i "{cps=25}{i}I understood his latin prefectly despite never learning the language{/i}"
+    i "{i}I understood his latin prefectly despite never learning the language{/i}"
 
     i "H-How are you...? What is going on! Tasks? Why can I understand-"
 
@@ -1154,8 +1055,6 @@ label touchPile:
     i "M-me? Chosen for what?"
 
     show jerry animated at centerScreen
-
-    j "(Speaking latin)"
 
     j "(Speaking latin)"
 
@@ -1175,12 +1074,6 @@ label touchPile:
 
     i "I-I see"
 
-    i "{cps=25}{i}I was confused, I was baffled, but at the same time{/i}"
-
-    i "I-I feel like..."
-
-    i "{cps=25}{i}Like I had a purpose now{/i}"
-
     show jerry animated at centerScreen
 
     j "(Speaking latin)"
@@ -1189,13 +1082,15 @@ label touchPile:
 
     show jerry happy at centerScreen
 
-    i "{cps=25}{i}At this point I fully submitted, I accepted that I have a divine entity in front of me{/i}"
+    i "{i}At this point I fully submitted, I accepted that I have a divine entity in front of me{/i}"
 
-    i "{cps=25}{i}I hung onto every word, eventually deciding to carry out the first task it laid before me{/i}"
+    i "{i}I hung onto every word, eventually deciding to carry out the first task it laid before me{/i}"
 
     # PLAYER DOES TASKS, PUT MENU FOR TASKS, DIFFERENT PATHS AND ALL THAT STUFF
 
-    i "{cps=25}{i}And that task was...{/i}"
+    i "{i}And that task was...{/i}"
+
+    hide jerry happy
 
     menu:
         "----->To take the life of another<-----":
@@ -1207,15 +1102,13 @@ label touchPile:
 
     i "To take the life of another"
 
-    i "{cps=25}{i}After waiting for a bit, I was presented with a {a=jump:observe}person with a bag over their head{/a}{/i}"
+    i "{i}After waiting for a bit, I was presented with a {a=jump:observe}person with a bag over their head{/a}{/i}"
 
     label returnFromObserve:
 
-    i "{cps=25}{i}On each side, a cuboid slime about 3-4 feet high with arms were escorting this individual{/i}"
+    i "{i}I heard their muffled screams, I could tell they were crying underneath that bag{/i}"
 
-    i "{cps=25}{i}I heard their muffled screams, I could tell they were crying underneath that bag{/i}"
-
-    i "{cps=25}{i}No matter{/i}"
+    i "{i}No matter{/i}"
 
     show jerry animated at centerScreen
 
@@ -1227,34 +1120,20 @@ label touchPile:
 
     i "..."
 
+    hide jerry happy
+
     menu:
         "----->Take Knife<-----":
             jump knife
 
     label knife:        
 
-    i "{cps=25}{i}I was handed a regular kitchen knife{/i}"
-
-    i "{cps=25}{i}The person was then escorted over to the alter, where they were forcefully put on it{/i}"
-
-    i "{cps=25}{i}They were struggling, but then other slimes joined in to subdue them{/i}"
-
-    i "{cps=25}{i}They each held the individuals arms and legs, the person was laid out like a starfish{/i}"
-    
-    i "{cps=25}{i}The slimes then released a part of themselves onto the respective body parts{/i}"
-
-    i "{cps=25}{i}The sacrifice was now helpless, their arms and legs now stuck to the altar{/i}"
+    i "{i}I was handed a regular kitchen knife{/i}"
 
     menu:
-        i "{cps=25}{i}{a=jump:observe2}Their crying got more intense{/a}{/i}"
+        i "{i}{a=jump:observe2}Their crying got more intense{/a}{/i}"
         "----->COMMENCE SACRIFICE<-----":
             jump sacrificeNow
-
-# ENTER MENU FOR SACRIFICE SHIZ
-
-    # ADD MENU FOR SACRIFICE
-    
-    # SACRIFICE SCENE
     
 #----------------------------------------------------------------------------------------------------------#     
 
@@ -1268,8 +1147,6 @@ label touchPile:
 
     hide jerry animated
 
-    show jerry happy at centerScreen
-
     i "Yes Jerry, right away"
 
     menu:
@@ -1278,18 +1155,8 @@ label touchPile:
 
     label raiseKnife:        
 
-    i "{cps=25}{i}I raised the knife like how Rafiki rased Simba{/i}"
-    
-    i "{cps=25}{i}At this point, something happened{/i}"
-
-    i "{cps=25}{i}Maybe it was some bizarre 6th sense for survival, but the sacrifice started crying louder and struggling even harder{/i}"
-
-    i "{cps=25}{i}It was like they could sense the knife that would pierce their flesh{/i}"
-
-    i "{cps=25}{i}Their arms and legs became sparratic, they have now lost their voice and fell silent{/i}"
-
-    i "{cps=25}{i}They had a mouth, but could no longer scream{/i}"
-
+    i "{i}I raised the knife like how Rafiki rased Simba{/i}"
+ 
     menu:
         "----->Lower Knife<-----":
             jump lowerKnife
@@ -1298,12 +1165,12 @@ label touchPile:
 
     play sound "knife.mp3"    
 
-    i "{cps=25}{i}I thrust the knife into their chest and let go{/i}"
+    i "{i}I thrust the knife into their chest and let go{/i}"
 
     # ENTER SOME KIND OF STABBING SOUND EFFECT??? SEARCH FOR FREE STAB SOUND EFFECT!!! YATTA DESU NEEEEE
 
     menu:
-        i "{cps=25}{i}I hear but faint whispers from their exhausted vocal chords, their body telling me all I need to know{/i}"
+        i "{i}I hear but faint whispers from their exhausted vocal chords, their body telling me all I need to know{/i}"
         "----->Grip Knife<-----":
             jump gripKnife
 
@@ -1311,10 +1178,10 @@ label touchPile:
 
     if s == 3:
 
-        i "{cps=25}{b}{i}It's too late for that{/i}{/b}"
+        i "{b}{i}It's too late for that{/i}{/b}"
 
     menu:
-        i "{cps=25}{i}I grip the knife{/i}"
+        i "{i}I grip the knife{/i}"
         "----->Twist Knife<-----":
             jump twistKnife
         "----->Take Knife Out<-----":
@@ -1323,43 +1190,39 @@ label touchPile:
 
     label twistKnife:
 
-    i "{cps=25}{i}I twist the knife"                
+    i "{i}I twist the knife"                
 
-    i "{cps=25}{i}They started to flail, like a fish out of water{/i}"
+    i "{i}They started to flail, like a fish out of water{/i}"
 
     menu:
-        i "{cps=25}{i}They started to flail, like a fish out of water{/i}"
+        i "{i}They started to flail, like a fish out of water{/i}"
         "----->Apply Pressure<-----":
             jump applyPressure
 
     label applyPressure:
 
-    i "{cps=25}{i}{a=jump:knifeStab}I applied pressure on the knife as it pierced the sacrifices heart{/a}{/i}"
+    i "{i}{a=jump:knifeStab}I applied pressure on the knife as it pierced the sacrifices heart{/a}{/i}"
 
     jump skipKnifeStab
 
     label knifeStab:
 
-    i "{cps=25}{i}I kept the knife in longer because why would I want it to end sooner?{/i}"
+    i "{i}I kept the knife in longer because why would I want it to end sooner?{/i}"
 
-    i "{cps=25}{i}The knife itself is like a seal, keeping the sacrifice alive{/i}"
+    i "{i}The knife itself is like a seal, keeping the sacrifice alive{/i}"
 
-    i "{cps=25}{i}And for a moment like this, I want it to last as {cps=10}looooong as possible{/i}"    
+    i "{i}And for a moment like this, I want it to last as {cps=10}looooong as possible{/i}"    
 
     label skipKnifeStab:    
 
     menu:
-        i "{cps=25}{i}They continued to flail{/i}"
+        i "{i}They continued to flail{/i}"
         "----->Take Knife Out<-----":
             jump knifeOut
 
     label knifeOut:        
 
-    i "{cps=25}{i}I wait {cps=10}.....{cps=25}and then slowly pull it out"
-
-    i "{cps=25}{i}The body lay lifeless, it is now just a shell{/i}"
-
-    i "{cps=25}{i}It is done{/i}"
+    i "{i}I wait {cps=10}.....and then slowly pull it out"
 
     i "I-I've done it!"
 
@@ -1369,15 +1232,21 @@ label touchPile:
 
     i "Huh? The identity doesn't matter right? Who cares who this is"
 
-    j "(Speaking latin)"
+    i "{i}At the time, I knew what he was alluding to{/i}"
 
-    i "...You aren't making sense"
+    i "{i}I....I-{/i}"
 
-    i "{cps=25}{i}At the time, I knew what he was alluding to{/i}"
+    i "{i}I take off the bag to reveal{/i} {a=jump:her}{b}HER{/b}{/a} {i}face{/i}" # E REVEAL PERFECT BRO CHANGING FROM THEIR TO HER
 
-    i "{cps=25}{i}I....I-{/i}"
+    play sound "collision.wav"
 
-    i "{cps=25}{i}I take off the bag to reveal{/i} {a=jump:her}{b}HER{/b}{/a} {i}face{/i}" # E REVEAL PERFECT BRO CHANGING FROM THEIR TO HER
+    show mystery at center:
+    with Dissolve(0.5)
+
+    hide mystery
+
+    show gf happy at center:
+    with Dissolve(0.5)        
 
     jump skipHer
     
@@ -1387,55 +1256,41 @@ label touchPile:
 
     label skipHer:
 
-    i "I-I'm so...I just...This wasn't-"
+    i "I-I didn't know it was [gf]! NO! I WON'T ACCEPT THIS!"
 
-    i "{cps=25}{i}It didn't matter what I said, words can't change what is aleady done{/i}"
+    hide gf happy
 
-    i "{cps=25}{i}My sins fangs were already at my throat{/i}"
+    i "{i}It didn't matter what I said, words can't change what is aleady done{/i}"
 
-    i "{cps=25}{i}Jerry applauds my efforts, my devotion{/i}"
-
-    j "(Speaking latin)"
-
-    i "{cps=25}{i}Because of [j]'s words I quickly regain my composure and accept my actions{/i}"
-
-    i "So, what's next?"
-
-    j "(Speaking latin)"
-
-    i "{cps=25}{i}I nearly vommited, this is the final step?{/i}"
-
-    i "{cps=25}{i}But [j]'s voice is one of divine power, the sickness becomes no more{/i}"
-
-    i "{cps=25}{i}Because all shepherds eventually eat their herds{/i}"
+    i "{i}Because all shepherds eventually eat their herds{/i}"
 
     i "I am ready"
 
     play music "absorbtion.mp3" fadein 1.0
 
-    i "{cps=25}{i}I then walk over to [j], then hug him{/i}"
+    i "{i}I then walk over to [j], then hug him{/i}"
 
-    i "{cps=25}{i}I start to get absorbed into [j]{/i}"
+    i "{i}I start to get absorbed into [j]{/i}"
 
-    i "{cps=25}{i}I feel so euphoric! Did I really deserve to be this happy?{/i}" 
+    i "{i}I feel so euphoric! Did I really deserve to be this happy?{/i}" 
 
-    i "{cps=25}{i}I go deeper into [j], he definitely feels me now!{/i}"
+    i "{i}I go deeper into [j], he definitely feels me now!{/i}"
 
-    i "{cps=25}{i}After a few minutes, my body starts decomposing{/i}"
+    i "{i}After a few minutes, my body starts decomposing{/i}"
 
-    i "{cps=25}{i}My flesh and bones become mush{/i}"
+    i "{i}My flesh and bones become mush{/i}"
 
-    i "{cps=25}{i}It hurts, it hurts so good{/i}"
+    i "{i}It hurts, it hurts so good{/i}"
 
-    i "{cps=25}{i}My skin bruning in hellfire, itching all over, my bones being broken one by one{/i}"
+    i "{i}My skin bruning in hellfire, itching all over, my bones being broken one by one{/i}"
 
-    i "{cps=25}{i}My insides being twisted and contorted into impossible geometry, my blood on fire{/i}"
+    i "{i}My insides being twisted and contorted into impossible geometry, my blood on fire{/i}"
 
-    i "{cps=25}{i}Great pain, but even greater pleasure{/i}"
+    i "{i}Great pain, but even greater pleasure{/i}"
 
-    i "{cps=25}{i}This lasts for what feels like an eternity, my screams muted, my body frozen{/i}"
+    i "{i}This lasts for what feels like an eternity, my screams muted, my body frozen{/i}"
 
-    i "{cps=25}{i}After a few minutes...{/i}"
+    i "{i}After a few minutes...{/i}"
 
     hide jerry happy
 
@@ -1444,7 +1299,7 @@ label touchPile:
     scene bg blacksquare:
     with Dissolve(0.5)    
 
-    i "{cps=25}{i}I get spat out, in a new form{/i}"
+    i "{i}I get spat out, in a new form{/i}"
 
     scene bg cult:
     with Dissolve(0.5)    
@@ -1463,7 +1318,7 @@ label touchPile:
     scene bg credits
     with Dissolve(0.5)
 
-    "{b}END 3/5{/b}"
+    "{b}END 3/100{/b}"
 
     "{b}Made for a college class at Washington State University{/b}"
 
@@ -1472,34 +1327,36 @@ label touchPile:
 
     "{b}Special thanks to Snow Strippers for giving us permission to use their song!{/b}"
 
-    scene main_menu
-    with Dissolve(0.5)
-    
     return   
 
 #----------------------------------------------------------------------------------------------------------#
 
 label observe2:  
 
-    i "{cps=25}{i}I take a moment of solace to observe the body{/i}"
+    i "{i}I take a moment of solace to observe the body{/i}"
 
-    i "{cps=25}{i}And that is when I realize a single strand of hair on their clothes{/i}"
+    i "{i}And that is when I realize a single strand of hair on their clothes{/i}"
 
-    i "{cps=25}{i}It was blonde{/i}"
+    i "{i}It was blonde{/i}"
 
-    i "{cps=25}{i}blonde...blonde...{cps=80}B L O N D E{/i}"
+    i "{i}blonde...blonde...{cps=80}B L O N D E{/i}"
 
-    i "{cps=25}{i}Goddammit! This is [gf]!{/i}"
+    play sound "collision.wav"
 
-    i "{cps=25}{i}I-{/i}"
+    show mystery at center:
+    with Dissolve(0.5)    
 
-    i "{cps=25}{i}This is too much! I can't do this!{/i}"
+    i "{i}Goddammit! This is [gf]!{/i}"
+
+    i "{i}I-{/i}"
+
+    i "{i}This is too much! I can't do this!{/i}"
 
     i "[j], this sacrifice isn't worthy of this great knife, can you please release this person and bring me another?"
 
     i "This person doesn't even deserve to die in this great place, lets let them live with this moment, scarring them for life"
 
-    i "{cps=25}{i}I try desperately to reason with [j], making up any excuse to not kill her, but then...{/i}"
+    i "{i}I try desperately to reason with [j], making up any excuse to not kill her, but then...{/i}"
 
     j "(Speaking latin)"
 
@@ -1509,20 +1366,20 @@ label observe2:
 
     i "No! Please, don-"
 
-    i "{cps=25}{i}I failed{/i}"
+    i "{i}I failed{/i}"
 
-    i "{cps=25}{i}I'm sorry [gf]{/i}"
+    i "{i}I'm sorry [gf]{/i}"
 
-    i "{cps=25}{i}But, at least I can die with just one thought in mind{/i}"
+    i "{i}But, at least I can die with just one thought in mind{/i}"
 
-    i "{cps=25}{i}At least in the darkest moment of my life{/i}"
+    i "{i}At least in the darkest moment of my life{/i}"
 
     i "{cps=15}{i}I retained my humanity{/i}"
 
     scene bg credits
     with Dissolve(0.5)
 
-    "{b}END 4/5{/b}"
+    "{b}END 4/100{/b}"
 
     "{b}Made for a college class at Washington State University{/b}"
 
@@ -1531,35 +1388,32 @@ label observe2:
 
     "{b}Special thanks to Snow Strippers for giving us permission to use their song!{/b}"
 
-    scene main_menu
-    with Dissolve(0.5)
-
     return 
 #----------------------------------------------------------------------------------------------------------#      
 
     label wayOut:
 
-    i "{cps=25}{i}I go down one of the random paths hoping for a way out{/i}"
+    i "{i}I go down one of the random paths hoping for a way out{/i}"
 
-    i "{cps=25}{i}Thankfully my eyes adjusted a little bit, but it is stil pitch black that I can't really see anything{/i}"
+    i "{i}Thankfully my eyes adjusted a little bit, but it is stil pitch black that I can't really see anything{/i}"
 
-    i "{cps=25}{i}I wander around until I feel a wall{/i}"
+    i "{i}I wander around until I feel a wall{/i}"
 
-    i "{cps=25}{i}I then put my hands on the wall and follow it, making sure my hands are firmly on the wall{/i}"
+    i "{i}I then put my hands on the wall and follow it, making sure my hands are firmly on the wall{/i}"
 
-    i "{cps=25}{i}I start walking{/i}"
+    i "{i}I start walking{/i}"
 
-    i "{cps=25}{i}...{/i}"
+    i "{i}...{/i}{nw}"
 
-    i "{cps=40}{i}...{/i}"
+    i "{cps=40}{i}...{/i}{nw}"
 
-    i "{cps=50}{i}...{/i}"
+    i "{cps=50}{i}...{/i}{nw}"
 
-    i "{cps=60}{i}...{/i}"
+    i "{cps=60}{i}...{/i}{nw}"
 
-    i "{cps=70}{i}...{/i}"
+    i "{cps=70}{i}...{/i}{nw}"
 
-    i "{cps=25}{i}How long does this go?!{/i}"
+    i "{i}How long does this go?!{/i}"
 
     menu:
         "----->Turn back<-----":
@@ -1577,68 +1431,59 @@ label observe2:
     # FOOTSTEPS, THEN WALK WHEN THE FOOTSTEPS ARE SILENT. WHEN PLAYER KEEPS WALKING W\HEN FOOTSTEPS
     # ARE NOT SILENT && PLAYER WALKS, THEY DIE
 
-    i "{cps=25}{i}I continue walking down this path{/i}"
+    i "{i}I continue walking down this path{/i}"
 
-    i "{cps=25}{i}...{/i}"
+    i "{i}...{/i}"
 
-    i "{cps=25}{i}I{/i}"    
-
-    "{b}TIME ELAPSED: 5 MINUTES{/b}"
-
-    "{b}TIME ELAPSED: 10 MINUTES{/b}"
+    i "{i}I{/i}"    
 
     "{b}TIME ELAPSED: 20 MINUTES{/b}"
 
-    "{b}TIME ELAPSED: 40 MINUTES{/b}"
-
     "{b}TIME ELAPSED: 1 HOUR{/b}"
 
-    i "{cps=25}{i}After walking for an hour, I sit on the wall to catch my breath{/i}"
+    i "{i}After walking for an hour, I sit on the wall to catch my breath{/i}"
 
-    i "{cps=25}{i}After taking a break, I continue walking, the wall being my only guide and friend{/i}"
+    i "{i}After taking a break, I continue walking, the wall being my only guide and friend{/i}"
 
     "{b}TIME ELAPSED: 2 HOURS{/b}"
 
-    i "{cps=25}{i}It is dark, and I am alone here{/i}"
+    i "{i}It is dark, and I am alone here{/i}"
 
-    i "{cps=25}{i}I continue onward, realizing that I cannot turn back now{/i}"
+    i "{i}I continue onward, realizing that I cannot turn back now{/i}"
 
-    i "{cps=25}{i}After 4 and a half hours in this darkness, I lose my ability to think{/i}"
-
-    "{b}TIME ELAPSED: 5 HOURS{/b}"
-
-    "{b}TIME ELAPSED: 10 HOURS{/b}"
-
+    i "{i}After 4 and a half hours in this darkness, I lose my ability to think{/i}"
+    
     "{b}TIME ELAPSED: 20 HOURS{/b}"
 
     "{b}TIME ELAPSED: {nw}"
 
     pause(1.5)
 
-    label db:
-
     play sound "scary.mp3" fadein 1.0
 
-    i "{cps=25}{i}I immediately snap out of it and I become more alert{/i}"
+    i "{i}I immediately snap out of it and I become more alert{/i}"
 
     play music "chase.mp3" fadein 0.5
 
     menu:
-        i "{cps=25}{i}{a=jump:listen}What the hell was that?!{/a}{/i}" # ADD PUZZLE WHERE THEY HAVE TO STOP MOVING AND LISTEN, IF THEY MOVE TOO MUCH PLAYER DIES
+        i "{i}What the hell was that?!{/i}" # ADD PUZZLE WHERE THEY HAVE TO STOP MOVING AND LISTEN, IF THEY MOVE TOO MUCH PLAYER DIES
         "----->RUN<-----":
             $ a = 100
             jump eaten
+        "----->Listen<-----":
+            jump listen
+
 
 #----------------------------------------------------------------------------------------------------------#
 
     label listen:    
 
-    i "{cps=25}{i}I listen carefully{/i}"    
+    i "{i}I listen carefully{/i}"    
 
-    i "{cps=25}{i}...{/i}"   
+    i "{i}...{/i}"   
 
     menu:
-        i "{cps=25}{i}Silence{/i}"
+        i "{i}Silence{/i}"
         "----->Listen<-----":
             jump listen
         "----->Walk<-----":
@@ -1648,9 +1493,9 @@ label observe2:
 
     label keepWalking2:
 
-    i "{cps=25}{i}I start walking{/i}"
+    i "{i}I start walking{/i}"
 
-    i "{cps=25}{i}...{/i}"
+    i "{i}...{/i}"
 
     play music "steps.mp3"
 
@@ -1661,7 +1506,7 @@ label observe2:
     $ b = 20
 
     menu:
-        i "{cps=25}{i}{a=jump:listening}I hear footsteps{/a}{/i}"
+        i "{i}{a=jump:listening}I hear footsteps{/a}{/i}"
         "----->Keep Walking<-----":
             $ a = 6 
             jump eaten
@@ -1672,16 +1517,16 @@ label observe2:
 
     if a == 20:
 
-        i "{cps=25}{i}The silence is deafening, is it not chasing me anymore?{/i}" 
+        i "{i}The silence is deafening, is it not chasing me anymore?{/i}" 
 
         if b == 20:
 
-            i "{cps=25}I decide to wait{/i}"
+            i "I decide to wait{/i}"
 
-            i "{cps=25}It has become silent{/i}"
+            i "It has become silent{/i}"
 
             menu:
-                i "{cps=25}It has become silent{/i}"
+                i "It has become silent{/i}"
                 "----->Wait<-----":
                     $ b = 13
                     jump listening
@@ -1692,7 +1537,7 @@ label observe2:
 
 
         menu:
-            i "{cps=25}{i}What should I do?{/i}"
+            i "{i}What should I do?{/i}"
             "----->Wait<-----":
                 $ a = 21
                 jump listening
@@ -1703,9 +1548,9 @@ label observe2:
 
     if a == 21:
 
-        i "{cps=25}...{/i}"
+        i "...{/i}"
 
-        i "{cps=25}Nothing is happening{/i}"
+        i "Nothing is happening{/i}"
 
         $ a = 20
 
@@ -1713,14 +1558,14 @@ label observe2:
 
     $ a = 20
 
-    i "{cps=25}{i}I listen again{/i}"
+    i "{i}I listen again{/i}"
 
-    i "{cps=25}{i}...{/i}"
+    i "{i}...{/i}"
 
     stop music
 
     menu:
-        i "{cps=25}{i}{a=jump:listening}Silence{/a}{/i}"           
+        i "{i}{a=jump:listening}Silence{/a}{/i}"           
         "----->Walk<-----":
             jump keepWalking2
 
@@ -1731,14 +1576,14 @@ label observe2:
     if a == 6:
 
         # PLAY LOUDER FOOTSTEP AUDIO
-        i "{cps=25}{i}I keep walking{/i}"
+        i "{i}I keep walking{/i}"
 
         if a == 20:
 
             play music "steps.mp3" 
 
             menu:
-                i "{cps=25}{i}I hear footsteps again!{/i}"
+                i "{i}I hear footsteps again!{/i}"
                 "---->Listen<-----":
                     $ b = 22
                     jump listening
@@ -1746,7 +1591,7 @@ label observe2:
         play music "running.mp3"
 
         menu:
-            i "{cps=25}{i}The footsteps are becoming a deafening, {a=jump:listening}something is getting closer!{/a}{/i}"
+            i "{i}The footsteps are becoming a deafening, {a=jump:listening}something is getting closer!{/a}{/i}"
             "----->RUN<-----":
                 $ a = 7
                 jump eaten
@@ -1757,51 +1602,51 @@ label observe2:
 
         if b == 20:
 
-            i "{cps=25}{i}I start walking again{/i}"
+            i "{i}I start walking again{/i}"
 
-            i "{cps=25}I think I am in the clear! Now I {cps=10}a-{nw}{/i}"
+            i "I think I am in the clear! Now I {cps=10}a-{nw}{/i}"
 
             play music "running.mp3"
 
-            i "{cps=25}{i}Whatever is chasing me is getting faster, {cps=50}the footseps start to speed up, I pick up the pace, {cps=75}I HAVE TO GET OUT OF HERE{/i}" # PUT TIE SHOELACE OPTION AT BEGINNING OF GAME ( TIE SHOELACE IF NOT EDGY)
+            i "{i}Whatever is chasing me is getting faster, {cps=50}the footseps start to speed up, I pick up the pace, {cps=75}I HAVE TO GET OUT OF HERE{/i}" # PUT TIE SHOELACE OPTION AT BEGINNING OF GAME ( TIE SHOELACE IF NOT EDGY)
 
             i "{cps=80}{i}I run as fast as I can, this thing is chasing me I-I have to run I-"
 
         stop music
 
         menu:    
-            i "{cps=25}{i}But then, while running, {a=jump:listen3}I don't hear anything{/a}{/i}"
+            i "{i}But then, while running, {a=jump:listen3}I don't hear anything{/a}{/i}"
             "----->Keep Running<-----":
                 $ a = 9  
 
     if a == 9:
         
-        i "{cps=25}{i}I trust my instinct and keep running, not even thinking of looking back{/i}"
+        i "{i}I trust my instinct and keep running, not even thinking of looking back{/i}"
 
-        i "{cps=25}{i}Eventually...I see a dim light in the distance{/i}"
+        i "{i}Eventually...I see a dim light in the distance{/i}"
 
-        i "{cps=25}{i}I-Freedom! I can finally get out of here, I can-{/i}"
+        i "{i}I-Freedom! I can finally get out of here, I can-{/i}"
 
         scene bg blacksquare
         with Dissolve(0.5)
 
         "{b}[i] reaches the end of the tunnel{/b}"
 
-        i "{cps=25}{i}...{/i}"
+        i "{i}...{/i}"
 
-        i "{cps=25}{i}...I-I give up{i}" 
+        i "{i}...I-I give up{i}" 
 
-        i "{cps=25}{i}I'm done{/i}"
+        i "{i}I'm done{/i}"
 
-        i "{cps=25}{i}I{/i}"
+        i "{i}I{/i}"
 
-        i "{cps=25}{i}I went in a circle{/i}"
+        i "{i}I went in a circle{/i}"
 
         jump choicesNow     
 
-    i "{cps=25}{i}I start hauling fat ass{/i}"
+    i "{i}I start hauling fat ass{/i}"
 
-    i "{cps=25}{i}What is chasing me?{/i}"
+    i "{i}What is chasing me?{/i}"
 
     i "{cps=70}{i}I'm running as my life depends on it, I can get out of this I can-{/i}"   
 
@@ -1809,14 +1654,14 @@ label observe2:
 
     "{cps=50}{b}[i] TRIPS ON HIS SHOELACES{/b}"
 
-    i "{cps=25}{i}Shi-{/i}{nw}"   
+    i "{i}Shi-{/i}{nw}"   
 
     play sound "cheapscare.mp3"
 
     show jumpscare at centerScreen:
         ease 0.5 zoom 4.0 
 
-    "{cps=25}{b}[i] MEETS A PAINFUL DEATH, HE SHOULD'VE TIED HIS SHOES{/b}"
+    "{b}[i] MEETS A PAINFUL DEATH, HE SHOULD'VE TIED HIS SHOES{/b}"
 
     hide jumpscare
 
@@ -1827,9 +1672,6 @@ label observe2:
 
     "{b}Special thanks to Snow Strippers for giving us permission to use their song!{/b}"
 
-    scene main_menu
-    with Dissolve(0.5)
-
     return   
 
 #----------------------------------------------------------------------------------------------------------#
@@ -1838,25 +1680,25 @@ label observe2:
     
     play music "heartneat.wav"
 
-    i "{cps=25}{i}I stop and stay silent{/i}"
+    i "{i}I stop and stay silent{/i}"
 
-    i "{cps=25}{i}...{/i}"
+    i "{i}...{/i}"
 
-    i "{cps=25}{i}All I can hear is the sound of my own heartbeat head.{/i}"
+    i "{i}All I can hear is the sound of my own heartbeat head.{/i}"
 
-    i "{cps=25}{i}It's loud, and it's the only thing I can h-{/i}{nw}"
+    i "{i}It's loud, and it's the only thing I can h-{/i}{nw}"
 
     play sound "cheapscare.mp3"
 
     show jumpscare at centerScreen:
-        ease 0.5 zoom 4.0   
+        ease 0.5- zoom 4.0   
 
     hide jumpscare    
 
     scene bg credits
     with Dissolve(0.5)
 
-    "{b}END 5/5{/b}"
+    "{b}END 5/100{/b}"
 
     "{b}Made for a college class at Washington State University{/b}"
 
@@ -1865,19 +1707,14 @@ label observe2:
 
     "{b}Special thanks to Snow Strippers for giving us permission to use their song!{/b}"
 
-    scene main_menu
-    with Dissolve(0.5)
-
     return 
 
 #----------------------------------------------------------------------------------------------------------#
 
     label observe: # Make this section something that the player can click on in the text beforehand to unlock this dialogue
 
-    i "{cps=25}{i}They were handcuffed with their hands behind their back, their legs connected together with a chain and collar{/i}"
+    i "{i}They were handcuffed with their hands behind their back, their legs connected together with a chain and collar{/i}"
 
-    i "{cps=25}{i}They were slender in build, it appeared to be the figure of a woman{/i}"
-
-    i "{cps=25}{i}...Why does this person feel so familiar...?{/i}"    
+    i "{i}It appeared to be the figure of a man{/i}"
 
     jump returnFromObserve
